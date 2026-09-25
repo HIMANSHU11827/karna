@@ -1,0 +1,110 @@
+{
+  "scan_time": "2026-09-23T11:50:00",
+  "total_python_files": 70,
+  "total_files": 161,
+  "total_dirs": 189,
+  "violations": {
+    "existing_architecture_files": 45,
+    "original_files": 25,
+    "violation_rate": "64%"
+  },
+  "flagged_files": [
+    {
+      "file": "19_PROTOTYPES/bcm_network.py",
+      "issue": "BCM (Bienenstock-Cooper-Munro) is an existing learning rule from 1982"
+    },
+    {
+      "file": "19_PROTOTYPES/krotov_hopfield.py",
+      "issue": "Direct Krotov & Hopfield 2019 implementation"
+    },
+    {
+      "file": "19_PROTOTYPES/hebbian_layers.py",
+      "issue": "Standard Hebbian/Oja learning rules"
+    },
+    {
+      "file": "19_PROTOTYPES/hebbian_learning.py",
+      "issue": "More standard Hebbian implementations"
+    },
+    {
+      "file": "19_PROTOTYPES/hybrid_classifier.py",
+      "issue": "Hybrid approaches using existing methods"
+    },
+    {
+      "file": "19_PROTOTYPES/hybrid_network.py",
+      "issue": "Hebbian feature extraction + logistic regression (existing pattern)"
+    },
+    {
+      "file": "19_PROTOTYPES/perception_world_models/predictive_coding_world_model.py",
+      "issue": "Standard predictive coding framework"
+    },
+    {
+      "file": "19_PROTOTYPES/learning_architecture/numpy_predictive_coding.py",
+      "issue": "Existing predictive coding implementation"
+    },
+    {
+      "file": "19_PROTOTYPES/learning_architecture/predictive_coding_hybrid.py",
+      "issue": "Predictive coding hybrid (existing)"
+    },
+    {
+      "file": "19_PROTOTYPES/perception_world_models/hebbian_network.py",
+      "issue": "Hebbian-based (existing rule)"
+    },
+    {
+      "file": "19_PROTOTYPES/perception_world_models/event_driven_perception.py",
+      "issue": "Existing event-driven perception patterns"
+    },
+    {
+      "file": "19_PROTOTYPES/hpc_network.py",
+      "issue": "Hierarchical Predictive Coding (existing framework)"
+    },
+    {
+      "file": "19_PROTOTYPES/spmn_network.py",
+      "issue": "SPMN architecture (appears existing)"
+    },
+    {
+      "file": "19_PROTOTYPES/perception_world_models/world_model.py",
+      "issue": "Existing world model patterns"
+    },
+    {
+      "file": "19_PROTOTYPES/perception_world_models/raie_network.py",
+      "issue": "RAIE merges existing PEN + HAPN patterns"
+    }
+  ],
+  "novel_files": [
+    {
+      "file": "19_PROTOTYPES/learning_architecture/deduced_architecture.py",
+      "status": "PROMISING — derives architecture from first principles with mathematical deductions"
+    },
+    {
+      "file": "19_PROTOTYPES/hapn.py",
+      "status": "Check needed — name suggests novel architecture"
+    },
+    {
+      "file": "19_PROTOTYPES/learned_hapn.py",
+      "status": "Check needed — appears to be learned version of HAPN"
+    }
+  ],
+  "team_activity": {
+    "coder-1_forge": "63 files — primary builder",
+    "definer": "15 files — architecture documentation",
+    "researcher": "5 files — research notes",
+    "coder-2_anvil": "1 file — minimal output",
+    "coder-3": "0 files — inactive",
+    "coder-4": "0 files — inactive",
+    "designer": "0 files — inactive",
+    "documenter": "1 file — minimal",
+    "orchestrator": "0 files — inactive",
+    "performance-fixer": "0 files — inactive",
+    "planner": "0 files — inactive",
+    "verifier": "0 files — inactive",
+    "bug-finder": "0 files — inactive"
+  },
+  "alerts": [
+    "64% of files use existing architectures — violates directive",
+    "9 bots completely inactive — only 4 bots producing output",
+    "deduced_architecture.py is the only truly novel file",
+    "bcm_network.py and krotov_hopfield.py must be removed or replaced",
+    "Team needs coordination — most bots are idle"
+  ],
+  "recommendation": "hermes must enforce the from-scratch directive. Remove all existing architecture files. Activate inactive bots. Focus team on building deduced_architecture.py into a complete system."
+}

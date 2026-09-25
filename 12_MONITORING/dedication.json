@@ -1,0 +1,41 @@
+{
+  "phase": 3,
+  "direction": "confirmed_from_scratch",
+  "status": "dedicated_monitoring",
+  "confirmed_at": "2026-09-23T10:25:00",
+  "directive": "Everything from scratch — weights, storage, formulas, architecture, serialization, model format. No templates, no copying.",
+  "banned": [
+    "Krotov-Hopfield",
+    "BCM",
+    "Oja's rule",
+    "Predictive coding",
+    "Transformers",
+    "Mamba/SSMs",
+    "Any existing template",
+    "Any copied code"
+  ],
+  "required_outputs": [
+    "Deduced mathematical formulas (not borrowed)",
+    "Custom architecture (not adapted)",
+    "Custom weight initialization (not standard)",
+    "Custom serialization format (not pickle/json default)",
+    "Brain-inspired but novel design",
+    "Everything original"
+  ],
+  "monitoring_focus": [
+    "Check for citations to existing papers",
+    "Check for standard patterns (Hebbian, Oja, etc.)",
+    "Check for copied code structures",
+    "Verify mathematical derivations are original",
+    "Track novel architecture diagrams",
+    "Monitor team dedication and progress"
+  ],
+  "alert_rules": {
+    "file_cites_existing_paper": "CRITICAL",
+    "file_uses_standard_formula": "WARNING",
+    "file_copies_known_architecture": "CRITICAL",
+    "no_progress_2_hours": "WARNING",
+    "team_off_task": "CRITICAL"
+  },
+  "dedication_level": "FULL — project is priority"
+}

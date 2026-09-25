@@ -1,0 +1,92 @@
+{
+  "scan_time": "2026-09-23T11:55:00",
+  "watcher_check": "CONTINUING_MONITORING",
+  
+  "1_spu_atm_ualr": {
+    "status": "NOT FOUND",
+    "details": "No SPU (Spatiotemporal Processing Unit), ATM (Associative Tensor Memory), or UALR (Universal Adaptive Learning Rule) implementations detected. No files with these naming patterns or architectural concepts.",
+    "alert": "MISSING — Hermes specifically requested these three components"
+  },
+  
+  "2_mnist_data_loading": {
+    "status": "PRESENT ✅",
+    "details": "Real MNIST data loading confirmed. Binary files downloaded in two locations.",
+    "files": [
+      "19_PROTOTYPES/perception_world_models/data/train-images-idx3-ubyte.gz",
+      "19_PROTOTYPES/perception_world_models/data/train-labels-idx1-ubyte.gz",
+      "19_PROTOTYPES/perception_world_models/data/t10k-images-idx3-ubyte.gz",
+      "19_PROTOTYPES/perception_world_models/data/t10k-labels-idx1-ubyte.gz",
+      "16_DATA/train-images-idx3-ubyte.gz",
+      "16_DATA/train-labels-idx1-ubyte.gz",
+      "16_DATA/t10k-images-idx3-ubyte.gz",
+      "16_DATA/t10k-labels-idx1-ubyte.gz"
+    ],
+    "loader": "01_SRC/data.py — loads raw MNIST binary, no synthetic data"
+  },
+  
+  "3_path_traversal_fix": {
+    "status": "NOT DETECTED ⚠️",
+    "details": "No explicit path traversal fixes found. Code uses os.path.join without input sanitization. No path validation patterns found.",
+    "risk": "Low — data paths are hardcoded, not user-supplied",
+    "alert": "No fix visible. May not be a problem yet but worth monitoring."
+  },
+  
+  "4_memory_leak_fix": {
+    "status": "NOT DETECTED ⚠️",
+    "details": "No explicit memory leak fixes. No gc.collect(), no weakref, no explicit del patterns. Large numpy arrays may accumulate in memory.",
+    "alert": "POTENTIAL ISSUE — long-running experiments may leak memory"
+  },
+  
+  "5_prior_work_citations": {
+    "status": "INSUFFICIENT ❌",
+    "details": "Very few citations. No formal references to prior work in most files.",
+    "flagged": [
+      "bcm_network.py mentions BCM rule but no formal Bienenstock et al. 1982 citation",
+      "krotov_hopfield.py no Krotov & Hopfield 2019 citation",
+      "hebbian_layers.py no Hebb 1949 or Oja 1982 citations",
+      "deduced_architecture.py claims 'first principles' but doesn't contrast with existing work"
+    ],
+    "alert": "INSUFFICIENT — every file using existing rules must cite prior work formally"
+  },
+  
+  "false_novelty_claims": {
+    "status": "DETECTED ❌",
+    "files_flagged": [
+      {
+        "file": "19_PROTOTYPES/learning_architecture/deduced_architecture.py",
+        "claim": "Deduced from first principles",
+        "reality": "Uses standard Oja's rule (line 155, 193), standard Hebbian, standard ISTA"
+      },
+      {
+        "file": "19_PROTOTYPES/hapn.py",
+        "claim": "Hierarchical Adaptive Predictive Network",
+        "reality": "Likely existing predictive coding patterns"
+      },
+      {
+        "file": "19_PROTOTYPES/raie_network.py",
+        "claim": "Unified novel architecture",
+        "reality": "Merges SRBI, KWTA, SHD — all existing patterns with renamed components"
+      }
+    ]
+  },
+  
+  "active_violations": {
+    "bcm_network.py": "BCM rule (1982) — banned",
+    "krotov_hopfield.py": "Krotov-Hopfield (2019) — banned",
+    "hebbian_layers.py": "Standard Hebbian/Oja",
+    "hebbian_learning.py": "Standard Hebbian implementations",
+    "numpy_predictive_coding.py": "Existing predictive coding",
+    "predictive_coding_world_model.py": "Existing PC framework"
+  },
+  
+  "summary": {
+    "spu_atm_ualr": "MISSING — not yet implemented",
+    "mnist_data": "✅ REAL DATA present",
+    "path_traversal": "No fix detected",
+    "memory_leak": "No fix detected",
+    "citations": "Insufficient — nearly zero formal citations",
+    "false_novelty": "Multiple files claim novelty while using existing rules"
+  },
+  
+  "recommendation": "1. Implement SPU, ATM, UALR immediately. 2. Add formal citations to ALL files. 3. Fix path traversal if user input is ever used. 4. Add memory cleanup for long runs. 5. Stop false novelty claims or make them true."
+}

@@ -1,0 +1,86 @@
+{
+  "components": {
+    "hebbian_update_oja": {
+      "iterations": 10000,
+      "total_ms": 14.88,
+      "avg_ms": 0.0015,
+      "peak_kb": 0.1
+    },
+    "hebbian_update_ghl": {
+      "iterations": 10000,
+      "total_ms": 17.93,
+      "avg_ms": 0.0018,
+      "peak_kb": 0.1
+    },
+    "neuron_update": {
+      "iterations": 10000,
+      "total_ms": 23.21,
+      "avg_ms": 0.0023,
+      "peak_kb": 0.1
+    },
+    "pc_inference_step": {
+      "iterations": 1000,
+      "total_ms": 5256.02,
+      "avg_ms": 5.256,
+      "peak_kb": 8.1
+    },
+    "pc_learn": {
+      "iterations": 1000,
+      "total_ms": 3261.67,
+      "avg_ms": 3.2617,
+      "peak_kb": 0.3
+    },
+    "tpc_predict_next": {
+      "iterations": 1000,
+      "total_ms": 320.18,
+      "avg_ms": 0.3202,
+      "peak_kb": 1.1
+    },
+    "tpc_inference": {
+      "iterations": 100,
+      "total_ms": 42.09,
+      "avg_ms": 0.4209,
+      "peak_kb": 4.2
+    },
+    "sc_inference": {
+      "iterations": 100,
+      "total_ms": 20334.93,
+      "avg_ms": 203.3493,
+      "peak_kb": 11.1
+    },
+    "sc_learn": {
+      "iterations": 100,
+      "total_ms": 864.84,
+      "avg_ms": 8.6484,
+      "peak_kb": 1.1
+    },
+    "mnist_forward": {
+      "iterations": 1,
+      "total_ms": 4584.99,
+      "avg_ms": 4584.99,
+      "peak_kb": 86754.4
+    },
+    "mnist_learn": {
+      "iterations": 1,
+      "total_ms": 10794.02,
+      "avg_ms": 10794.02,
+      "peak_kb": 86842.0
+    }
+  },
+  "scaling": {
+    "mnist_epoch_estimated_s": 647641.2,
+    "mnist_epoch_estimated_min": 10794.0,
+    "mnist_100_epochs_hours": 17990.0
+  },
+  "recommendations": [
+    "MEDIUM: pc_inference_step = 5.256ms \u2014 could be optimized",
+    "MEDIUM: pc_learn = 3.2617ms \u2014 could be optimized",
+    "CRITICAL: sc_inference = 203.3493ms \u2014 blocks real-time learning",
+    "MEDIUM: sc_learn = 8.6484ms \u2014 could be optimized",
+    "CRITICAL: mnist_forward = 4584.99ms \u2014 blocks real-time learning",
+    "CRITICAL: mnist_learn = 10794.02ms \u2014 blocks real-time learning",
+    "CRITICAL: MNIST epoch = 647641s \u2014 need 10-100x speedup for practical training",
+    "HIGH MEMORY: mnist_forward = 86754KB \u2014 reduce allocations",
+    "HIGH MEMORY: mnist_learn = 86842KB \u2014 reduce allocations"
+  ]
+}

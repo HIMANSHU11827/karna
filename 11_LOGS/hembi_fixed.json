@@ -1,0 +1,14 @@
+{
+  "dataset": "mnist",
+  "config": {
+    "input_dim": 784,
+    "hidden_dim": 128,
+    "n_train": 6000,
+    "n_test": 1000
+  },
+  "results": {
+    "random_proj_knn": 0.861,
+    "single_hebbian_linear": 0.126,
+    "stacked_hebbian_linear": 0.11
+  }
+}

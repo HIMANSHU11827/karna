@@ -1,0 +1,39 @@
+{
+  "phase": 2,
+  "status": "approved",
+  "locked_at": "2026-09-23T10:05:00",
+  "decisions": [
+    {
+      "id": "lang",
+      "decision": "Python, NumPy only — no PyTorch/TensorFlow, no autograd",
+      "rationale": "Maximize transparency and neuromorphic compatibility"
+    },
+    {
+      "id": "compute",
+      "decision": "Local CPU, neuromorphic-ready (event-driven, sparse)",
+      "rationale": "Avoid GPU dependency, enable future neuromorphic hardware migration"
+    },
+    {
+      "id": "models",
+      "decision": "No base models — from scratch, random init, Hebbian learning only",
+      "rationale": "True from-scratch learning without pre-trained components"
+    },
+    {
+      "id": "scope",
+      "decision": "MNIST → CIFAR-10 → Split-MNIST continual → 2D grid world",
+      "rationale": "Progressive difficulty with continual learning validation"
+    },
+    {
+      "id": "publication",
+      "decision": "MIT license, public GitHub, arXiv target",
+      "rationale": "Open science, reproducible research"
+    }
+  ],
+  "monitoring_focus": [
+    "Baseline tracking accuracy vs published benchmarks",
+    "CPU resource usage during training",
+    "Hebbian learning convergence rates",
+    "Continual learning retention metrics",
+    "Code compliance with NumPy-only constraint"
+  ]
+}

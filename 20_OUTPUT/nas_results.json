@@ -1,0 +1,739 @@
+{
+  "generation": 9,
+  "population_size": 20,
+  "mutation_rate": 0.3,
+  "history": [
+    {
+      "generation": 0,
+      "best_fitness": 1.3190952248838577,
+      "mean_fitness": 0.804937612049884,
+      "best_arch": {
+        "id": "arch_0_2343",
+        "fitness": 1.3190952248838577,
+        "layers": [
+          {
+            "layer_type": "conv2d",
+            "units": 64,
+            "activation": "silu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 512,
+            "activation": "sigmoid",
+            "dropout": 0.0,
+            "extra": {}
+          },
+          {
+            "layer_type": "attention",
+            "units": 32,
+            "activation": "relu",
+            "dropout": 0.5,
+            "extra": {}
+          },
+          {
+            "layer_type": "lstm",
+            "units": 512,
+            "activation": "sigmoid",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "lstm",
+            "units": 32,
+            "activation": "sigmoid",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "gru",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.5,
+            "extra": {}
+          }
+        ]
+      }
+    },
+    {
+      "generation": 1,
+      "best_fitness": 1.3380309994582662,
+      "mean_fitness": 1.105703224446065,
+      "best_arch": {
+        "id": "arch_0_9947",
+        "fitness": 1.3380309994582662,
+        "layers": [
+          {
+            "layer_type": "attention",
+            "units": 1024,
+            "activation": "relu",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "conv2d",
+            "units": 768,
+            "activation": "gelu",
+            "dropout": 0.0,
+            "extra": {}
+          },
+          {
+            "layer_type": "attention",
+            "units": 1024,
+            "activation": "sigmoid",
+            "dropout": 0.3,
+            "extra": {}
+          },
+          {
+            "layer_type": "conv2d",
+            "units": 768,
+            "activation": "tanh",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "lstm",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.0,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 768,
+            "activation": "gelu",
+            "dropout": 0.5,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 1024,
+            "activation": "silu",
+            "dropout": 0.5,
+            "extra": {}
+          },
+          {
+            "layer_type": "gru",
+            "units": 64,
+            "activation": "tanh",
+            "dropout": 0.1,
+            "extra": {}
+          }
+        ]
+      }
+    },
+    {
+      "generation": 2,
+      "best_fitness": 1.3733875736846226,
+      "mean_fitness": 1.2659280424734562,
+      "best_arch": {
+        "id": "arch_1_1645",
+        "fitness": 1.3733875736846226,
+        "layers": [
+          {
+            "layer_type": "attention",
+            "units": 1024,
+            "activation": "relu",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "conv2d",
+            "units": 768,
+            "activation": "gelu",
+            "dropout": 0.0,
+            "extra": {}
+          },
+          {
+            "layer_type": "attention",
+            "units": 1024,
+            "activation": "sigmoid",
+            "dropout": 0.3,
+            "extra": {}
+          },
+          {
+            "layer_type": "conv2d",
+            "units": 768,
+            "activation": "tanh",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "lstm",
+            "units": 32,
+            "activation": "sigmoid",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "gru",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.5,
+            "extra": {}
+          }
+        ]
+      }
+    },
+    {
+      "generation": 3,
+      "best_fitness": 1.3627051419318004,
+      "mean_fitness": 1.2879086028965236,
+      "best_arch": {
+        "id": "arch_2_9647",
+        "fitness": 1.3627051419318004,
+        "layers": [
+          {
+            "layer_type": "attention",
+            "units": 1024,
+            "activation": "relu",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "conv2d",
+            "units": 768,
+            "activation": "gelu",
+            "dropout": 0.3,
+            "extra": {}
+          },
+          {
+            "layer_type": "attention",
+            "units": 1024,
+            "activation": "sigmoid",
+            "dropout": 0.3,
+            "extra": {}
+          },
+          {
+            "layer_type": "lstm",
+            "units": 768,
+            "activation": "tanh",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "lstm",
+            "units": 32,
+            "activation": "gelu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "gru",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.5,
+            "extra": {}
+          }
+        ]
+      }
+    },
+    {
+      "generation": 4,
+      "best_fitness": 1.4261820585452176,
+      "mean_fitness": 1.2781514068017024,
+      "best_arch": {
+        "id": "arch_2_9647",
+        "fitness": 1.4261820585452176,
+        "layers": [
+          {
+            "layer_type": "attention",
+            "units": 1024,
+            "activation": "relu",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "conv2d",
+            "units": 768,
+            "activation": "gelu",
+            "dropout": 0.3,
+            "extra": {}
+          },
+          {
+            "layer_type": "attention",
+            "units": 1024,
+            "activation": "sigmoid",
+            "dropout": 0.3,
+            "extra": {}
+          },
+          {
+            "layer_type": "lstm",
+            "units": 768,
+            "activation": "tanh",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "lstm",
+            "units": 32,
+            "activation": "gelu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "gru",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.5,
+            "extra": {}
+          }
+        ]
+      }
+    },
+    {
+      "generation": 5,
+      "best_fitness": 1.4178609625068197,
+      "mean_fitness": 1.2848367428823348,
+      "best_arch": {
+        "id": "arch_4_1519",
+        "fitness": 1.4178609625068197,
+        "layers": [
+          {
+            "layer_type": "attention",
+            "units": 1024,
+            "activation": "relu",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "conv2d",
+            "units": 768,
+            "activation": "gelu",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 1024,
+            "activation": "sigmoid",
+            "dropout": 0.3,
+            "extra": {}
+          },
+          {
+            "layer_type": "lstm",
+            "units": 768,
+            "activation": "tanh",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "lstm",
+            "units": 32,
+            "activation": "gelu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "gru",
+            "units": 768,
+            "activation": "relu",
+            "dropout": 0.5,
+            "extra": {}
+          }
+        ]
+      }
+    },
+    {
+      "generation": 6,
+      "best_fitness": 1.4360785327441137,
+      "mean_fitness": 1.3055041847241424,
+      "best_arch": {
+        "id": "arch_4_1519",
+        "fitness": 1.4360785327441137,
+        "layers": [
+          {
+            "layer_type": "attention",
+            "units": 1024,
+            "activation": "relu",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "conv2d",
+            "units": 768,
+            "activation": "gelu",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 1024,
+            "activation": "sigmoid",
+            "dropout": 0.3,
+            "extra": {}
+          },
+          {
+            "layer_type": "lstm",
+            "units": 768,
+            "activation": "tanh",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "lstm",
+            "units": 32,
+            "activation": "gelu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "gru",
+            "units": 768,
+            "activation": "relu",
+            "dropout": 0.5,
+            "extra": {}
+          }
+        ]
+      }
+    },
+    {
+      "generation": 7,
+      "best_fitness": 1.4198769844071477,
+      "mean_fitness": 1.3370704429579152,
+      "best_arch": {
+        "id": "arch_6_2655",
+        "fitness": 1.4198769844071477,
+        "layers": [
+          {
+            "layer_type": "attention",
+            "units": 1024,
+            "activation": "relu",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "conv2d",
+            "units": 768,
+            "activation": "gelu",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 1024,
+            "activation": "sigmoid",
+            "dropout": 0.3,
+            "extra": {}
+          },
+          {
+            "layer_type": "lstm",
+            "units": 768,
+            "activation": "tanh",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 512,
+            "activation": "gelu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "lstm",
+            "units": 32,
+            "activation": "gelu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "gru",
+            "units": 768,
+            "activation": "relu",
+            "dropout": 0.5,
+            "extra": {}
+          }
+        ]
+      }
+    },
+    {
+      "generation": 8,
+      "best_fitness": 1.4182737644460413,
+      "mean_fitness": 1.3483286862983737,
+      "best_arch": {
+        "id": "arch_7_6713",
+        "fitness": 1.4182737644460413,
+        "layers": [
+          {
+            "layer_type": "attention",
+            "units": 256,
+            "activation": "relu",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "conv2d",
+            "units": 768,
+            "activation": "gelu",
+            "dropout": 0.3,
+            "extra": {}
+          },
+          {
+            "layer_type": "attention",
+            "units": 1024,
+            "activation": "sigmoid",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "lstm",
+            "units": 768,
+            "activation": "tanh",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 512,
+            "activation": "sigmoid",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "lstm",
+            "units": 32,
+            "activation": "gelu",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "gru",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.5,
+            "extra": {}
+          }
+        ]
+      }
+    },
+    {
+      "generation": 9,
+      "best_fitness": 1.4270156964824143,
+      "mean_fitness": 1.3498355317692876,
+      "best_arch": {
+        "id": "arch_8_2572",
+        "fitness": 1.4270156964824143,
+        "layers": [
+          {
+            "layer_type": "attention",
+            "units": 1024,
+            "activation": "relu",
+            "dropout": 0.2,
+            "extra": {}
+          },
+          {
+            "layer_type": "conv2d",
+            "units": 768,
+            "activation": "relu",
+            "dropout": 0.3,
+            "extra": {}
+          },
+          {
+            "layer_type": "gru",
+            "units": 1024,
+            "activation": "relu",
+            "dropout": 0.3,
+            "extra": {}
+          },
+          {
+            "layer_type": "lstm",
+            "units": 768,
+            "activation": "tanh",
+            "dropout": 0.5,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.5,
+            "extra": {}
+          },
+          {
+            "layer_type": "linear",
+            "units": 512,
+            "activation": "relu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "lstm",
+            "units": 32,
+            "activation": "gelu",
+            "dropout": 0.1,
+            "extra": {}
+          },
+          {
+            "layer_type": "conv2d",
+            "units": 768,
+            "activation": "silu",
+            "dropout": 0.5,
+            "extra": {}
+          }
+        ]
+      }
+    }
+  ],
+  "best": {
+    "id": "arch_8_2572",
+    "fitness": 1.4270156964824143,
+    "layers": [
+      {
+        "layer_type": "attention",
+        "units": 1024,
+        "activation": "relu",
+        "dropout": 0.2,
+        "extra": {}
+      },
+      {
+        "layer_type": "conv2d",
+        "units": 768,
+        "activation": "relu",
+        "dropout": 0.3,
+        "extra": {}
+      },
+      {
+        "layer_type": "gru",
+        "units": 1024,
+        "activation": "relu",
+        "dropout": 0.3,
+        "extra": {}
+      },
+      {
+        "layer_type": "lstm",
+        "units": 768,
+        "activation": "tanh",
+        "dropout": 0.5,
+        "extra": {}
+      },
+      {
+        "layer_type": "linear",
+        "units": 512,
+        "activation": "relu",
+        "dropout": 0.5,
+        "extra": {}
+      },
+      {
+        "layer_type": "linear",
+        "units": 512,
+        "activation": "relu",
+        "dropout": 0.1,
+        "extra": {}
+      },
+      {
+        "layer_type": "lstm",
+        "units": 32,
+        "activation": "gelu",
+        "dropout": 0.1,
+        "extra": {}
+      },
+      {
+        "layer_type": "conv2d",
+        "units": 768,
+        "activation": "silu",
+        "dropout": 0.5,
+        "extra": {}
+      }
+    ]
+  }
+}

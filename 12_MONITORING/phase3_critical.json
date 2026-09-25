@@ -1,0 +1,28 @@
+{
+  "phase": 3,
+  "direction": "original_research_only",
+  "status": "critical_monitoring",
+  "updated_at": "2026-09-23T10:15:00",
+  "directive": "STOP tuning existing architectures. Deduce original neural network formulas from first principles.",
+  "banned_approaches": [
+    "Oja's rule incremental improvements",
+    "Krotov-Hopfield replication",
+    "Predictive coding frameworks",
+    "Transformer/Mamba/SSMs",
+    "Any published architecture"
+  ],
+  "required_outputs": [
+    "Mathematical derivation of new learning rules",
+    "Novel architecture diagram with state/memory/reasoning",
+    "Prototype implementing deduced formulas (not existing ones)",
+    "Proof that this is original work"
+  ],
+  "monitoring_focus": [
+    "Are new files citing existing papers? (red flag)",
+    "Are formulas derived from first principles?",
+    "Is there a mathematical derivation document?",
+    "Are existing architecture files being removed/rewritten?",
+    "Is the team actually building something new?"
+  ],
+  "alert_threshold": "Any file that cites Krotov, Hopfield, Oja, or other existing work = immediate flag"
+}

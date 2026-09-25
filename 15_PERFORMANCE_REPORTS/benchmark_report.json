@@ -1,0 +1,49 @@
+{
+  "system": {
+    "platform": "Linux-7.2.5-3-omarchy-x86_64-with-glibc2.44",
+    "python": "3.11.16",
+    "cpu": 8,
+    "memory_gb": "15 (4.5 available)",
+    "gpu": "none"
+  },
+  "benchmarks": [
+    {
+      "name": "memory_recall",
+      "iterations": 100,
+      "total_ms": 668.77,
+      "avg_ms": 6.6877,
+      "peak_kb": 579.3
+    },
+    {
+      "name": "world_model_predict",
+      "iterations": 100,
+      "total_ms": 47562.35,
+      "avg_ms": 475.6235,
+      "peak_kb": 6529.6
+    },
+    {
+      "name": "nas_mutation",
+      "iterations": 100,
+      "total_ms": 217.74,
+      "avg_ms": 2.1774,
+      "peak_kb": 71.3
+    },
+    {
+      "name": "agent_step",
+      "iterations": 100,
+      "total_ms": 7.54,
+      "avg_ms": 0.0754,
+      "peak_kb": 47.6
+    },
+    {
+      "name": "json_serialize",
+      "iterations": 100,
+      "total_ms": 538.06,
+      "avg_ms": 5.3806,
+      "peak_kb": 166.8
+    }
+  ],
+  "recommendations": [
+    "HIGH LATENCY: world_model_predict averages 475.6235ms \u2014 optimize hot path"
+  ]
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "timestamp": "2026-09-23T09:58:50.349279",
+    "git": {
+      "git_initialized": false
+    },
+    "large_files": [],
+    "broken_symlinks": [],
+    "secret_warnings": [
+      "Potential secrets matching 'api_key': 1 occurrences",
+      "Potential secrets matching 'password': 1 occurrences",
+      "Potential secrets matching 'secret': 5 occurrences",
+      "Potential secrets matching 'token': 5 occurrences"
+    ],
+    "overall_status": "warnings"
+  }
+]

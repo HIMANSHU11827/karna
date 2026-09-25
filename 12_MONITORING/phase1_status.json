@@ -1,0 +1,81 @@
+{
+  "scan_time": "2026-09-23T13:05:00",
+  "watcher_check": "PHASE_1_MONITORING_ACTIVE",
+  
+  "survey_status": {
+    "total_expected": 9,
+    "completed": 3,
+    "completion_rate": "33%",
+    "completed_surveys": [
+      {
+        "name": "Alternative Architectures",
+        "file": "10_RESEARCH/alternative_architectures_survey.md",
+        "author": "Anvil (Coder 2)",
+        "status": "✅ COMPLETE",
+        "quality": "Thorough survey of PCN, tPC, SPC, NGC, Hebbian variants, SNN+Meta-learning, DHPC"
+      },
+      {
+        "name": "Phase 2 Research Notes",
+        "file": "01_RESEARCH/research_notes_phase2.md",
+        "author": "researcher",
+        "status": "✅ COMPLETE",
+        "quality": "Covers RWKV, Mamba, S4/S5, PCNs, BCNs, alternative architectures"
+      },
+      {
+        "name": "Real-Time Systems",
+        "file": "01_RESEARCH/real_time_systems_survey.md",
+        "author": "unknown",
+        "status": "✅ COMPLETE"
+      }
+    ],
+    "pending_surveys": [
+      "Hebbian Learning (P0)",
+      "Predictive Coding (P0)",
+      "Sparse Coding (P0)",
+      "Continual Learning (P1)",
+      "World Models (P1)",
+      "Memory Systems (P1)"
+    ]
+  },
+  
+  "outputs_in_01_research": {
+    "files": [
+      "baseline_tracking.md",
+      "pivot_report_hebbian_failure.md",
+      "real_time_systems_survey.md",
+      "research_notes_phase2.md",
+      "results.md",
+      "unified_tracking.md"
+    ],
+    "count": 6
+  },
+  
+  "coding_activity": {
+    "status": "⚠️ DETECTED",
+    "evidence": "70 Python files exist with network implementations (Hebbian, BCM, PCN, HAPN, RAIE). Multiple training scripts already present.",
+    "alert": "ALERT — Hermes said 'study phase first' but coders have built extensive code"
+  },
+  
+  "false_novelty_claims": {
+    "status": "DETECTED ⚠️",
+    "findings": [
+      "unified_tracking.md acknowledges novelty is in integration, not individual components",
+      "RAIE claims 'unified architecture' but merges existing SRBI, KWTA, SHD patterns",
+      "PCHH architecture uses standard predictive coding formulas"
+    ]
+  },
+  
+  "researcher_activity": {
+    "files": ["10_RESEARCH/alternative_architectures_survey.md"],
+    "total": 1,
+    "alert": "LOW — Researcher has only completed 1 survey"
+  },
+  
+  "planner_activity": {
+    "files": ["01_RESEARCH/research_notes_phase2.md"],
+    "total": 1
+  },
+  
+  "overall_status": "⚠️ MIXED",
+  "summary": "3/9 surveys complete. Coders actively building (70 Python files) despite study phase directive. False novelty claims detected in unified architecture docs. Researcher needs to complete remaining 6 surveys."
+}

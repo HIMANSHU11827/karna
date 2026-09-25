@@ -1,0 +1,10 @@
+{
+  "dataset": "mnist",
+  "n_train": 6000,
+  "n_test": 1000,
+  "results": {
+    "krotov_wta": 0.427,
+    "dense_hebbian": 0.571,
+    "two_layer_hybrid": 0.085
+  }
+}

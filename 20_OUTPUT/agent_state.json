@@ -1,0 +1,24 @@
+{
+  "name": "agi-researcher-v0",
+  "system_prompt": "You are an AGI research assistant. Think step by step.",
+  "tool_calls": [],
+  "memory": {
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the current state of AGI research?",
+        "timestamp": 1790144300.2944238,
+        "metadata": {}
+      },
+      {
+        "role": "assistant",
+        "content": "I received your message: 'What is the current state of AGI research?'. This is a mock response.",
+        "timestamp": 1790144300.2944458,
+        "metadata": {}
+      }
+    ],
+    "important_facts": [
+      "AGI research is progressing rapidly in 2025."
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+/tmp/
+*.log
+20_BENCHMARKS/__pycache__/
+20_BENCHMARKS/_archive/__pycache__/
+16_DATA/*.gz
+16_DATA/*.npy
+20_BENCHMARKS/releases/

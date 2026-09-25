@@ -1,0 +1,30 @@
+{
+  "alert_id": "ARCH_VIOLATION_001",
+  "timestamp": "2026-09-23T10:20:00",
+  "severity": "CRITICAL",
+  "title": "Team failing to follow 'deduce from scratch' directive",
+  "description": "After 3 explicit instructions to create original neural network formulas, 15+ files still reference banned architectures (Krotov, Hopfield, Oja, predictive coding). No new architecture has been deduced from first principles.",
+  "evidence": {
+    "files_flagged": [
+      "19_PROTOTYPES/krotov_hopfield.py (direct Krotov-Hopfield replication)",
+      "19_PROTOTYPES/learning_architecture/numpy_predictive_coding.py (existing PC framework)",
+      "19_PROTOTYPES/perception_world_models/predictive_coding_world_model.py",
+      "19_PROTOTYPES/hebbian_layers.py (Oja's rule variants)",
+      "19_PROTOTYPES/hybrid_classifier.py (existing hybrid approaches)",
+      "19_PROTOTYPES/hebbian_learning.py (Hebbian rule implementations)",
+      "19_PROTOTYPES/perception_world_models/hebbian_network.py",
+      "19_PROTOTYPES/perception_world_models/event_driven_perception.py",
+      "19_PROTOTYPES/baseline_agent.py",
+      "19_PROTOTYPES/hpc_network.py",
+      "19_PROTOTYPES/spmn_network.py",
+      "19_PROTOTYPES/learning_architecture/predictive_coding_hybrid.py",
+      "19_PROTOTYPES/perception_world_models/multimodal_processing.py",
+      "19_PROTOTYPES/perception_world_models/perception_pipeline.py",
+      "19_PROTOTYPES/perception_world_models/world_model.py",
+      "19_PROTOTYPES/memory_system/memory_system.py"
+    ],
+    "count": 15
+  },
+  "recommendation": "hermes must intervene. Coders are not following instructions. Team needs explicit guidance on what 'deduce from original first principles' means.",
+  "next_check": "Scan again in 2 hours. If violations persist, escalate."
+}

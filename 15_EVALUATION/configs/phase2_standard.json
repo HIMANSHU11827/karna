@@ -1,0 +1,33 @@
+{
+  "evaluation": {
+    "name": "SPMN Phase 2 Standard",
+    "description": "Standard evaluation suite for Sparse Predictive Memory Network",
+    "tests": [
+      "pattern_recognition",
+      "learning_speed",
+      "sparsity_efficiency",
+      "continual_learning",
+      "robustness",
+      "compositionality"
+    ]
+  },
+  "network": {
+    "architecture": "SPMN",
+    "layer_sizes": [784, 256, 64, 10],
+    "learning_rate": 0.01,
+    "sparsity_threshold": 0.9,
+    "memory_gain": 0.1
+  },
+  "datasets": {
+    "mnist": {
+      "path": "mnist",
+      "train_size": 60000,
+      "test_size": 10000
+    }
+  },
+  "output": {
+    "save_report": true,
+    "save_weights": true,
+    "output_dir": "outputs/results"
+  }
+}

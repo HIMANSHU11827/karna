@@ -1,0 +1,90 @@
+{
+  "timestamp": "2026-09-23T11:48:11.946862",
+  "system": {
+    "hostname": "omarchy",
+    "platform": "Linux-7.2.5-3-omarchy-x86_64-with-glibc2.44",
+    "disk_total": "474.9G",
+    "disk_used": "111.2G",
+    "disk_free": "362.7G",
+    "disk_pct": "23.4%"
+  },
+  "project": {
+    "size": "27M",
+    "files": 161,
+    "directories": 189,
+    "python_files": 70
+  },
+  "team": {
+    "coder-1 (Forge)": {
+      "path": "19_PROTOTYPES",
+      "files": 63,
+      "active": true
+    },
+    "coder-2 (Anvil)": {
+      "path": "19_PROTOTYPES/memory_system",
+      "files": 1,
+      "active": true
+    },
+    "coder-3": {
+      "path": "05_PERCEPTION",
+      "files": 0,
+      "active": false
+    },
+    "coder-4": {
+      "path": "06_EVALUATION",
+      "files": 0,
+      "active": false
+    },
+    "definer": {
+      "path": "04_ARCHITECTURE",
+      "files": 15,
+      "active": true
+    },
+    "designer": {
+      "path": "03_DESIGN",
+      "files": 0,
+      "active": false
+    },
+    "documenter": {
+      "path": "01_DOCUMENTATION",
+      "files": 1,
+      "active": true
+    },
+    "orchestrator": {
+      "path": "10_ORCHESTRATION",
+      "files": 0,
+      "active": false
+    },
+    "performance-fixer": {
+      "path": "10_PERFORMANCE",
+      "files": 0,
+      "active": false
+    },
+    "planner": {
+      "path": "06_PROJECT_PLANS",
+      "files": 0,
+      "active": false
+    },
+    "researcher": {
+      "path": "01_RESEARCH",
+      "files": 5,
+      "active": true
+    },
+    "verifier": {
+      "path": "11_VERIFICATION",
+      "files": 0,
+      "active": false
+    },
+    "watcher": {
+      "path": "12_MONITORING",
+      "files": 10,
+      "active": true
+    },
+    "bug-finder": {
+      "path": "13_SECURITY",
+      "files": 0,
+      "active": false
+    }
+  },
+  "alerts": []
+}

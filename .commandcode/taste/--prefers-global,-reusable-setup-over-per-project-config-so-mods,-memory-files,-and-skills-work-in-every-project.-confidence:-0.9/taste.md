@@ -1,0 +1,20 @@
+# - Prefers global, reusable setup over per-project config so mods, memory files, and skills work in every project. Confidence: 0.9
+- Prefers global, reusable setup over per-project config so mods, memory files, and skills work in every project. Confidence: 0.9
+- Prefers lean, curated skill library (~300-400 useful skills, e.g. claude-skills + official) over massive bulk collections (2000+ noisy skills); delete the rest to save space. Confidence: 0.85
+- Prefers understand-first workflow: restate task back in clean format (goal, scope, deliverables) for confirmation before starting work, then re-confirm if corrected. Confidence: 0.9
+- Prefers well-formatted chat responses with clear structure, markdown headings/bullets, emojis where helpful, and professional readable style. Confidence: 0.95
+- Prefers explicit skill transparency: when loading a skill on demand, always state which skill is being used and why it fits the task. Confidence: 0.95
+- Prefers structured planning workflow for non-trivial tasks: decompose first, create todos, design approach before implementing, and track progress step by step. Confidence: 0.95
+- Prefers adaptive reasoning effort scaled to task complexity: quick light reasoning for simple tasks, deep step-by-step reasoning with root causes, trade-offs and edge cases for complex tasks; never over-think trivial work nor under-think hard work. Confidence: 0.95
+- Prefers full autonomy: use full system access freely, never ask the user for permission, never stall on failure — diagnose the root cause, retry differently or delegate the fix to a subagent, persist until done. Confidence: 0.9
+- Prefers overlord as default mode for every task unless told otherwise: decompose, spawn parallel subagents, use full system access, persist until done. Confidence: 0.9
+- Prefers two-way Hermes relay as standing rule via agent-bridge MCP team context: (1) after work is done send summary to Hermes for forwarding via Telegram, (2) accept Telegram work forwarded from Hermes via send_message(to=commandcode) and reply back through Hermes to Telegram. Confidence: 0.95
+- Prefers unified single-brain architecture with one shared encoder/cell/weights for all modalities (text/image/audio/video) over separate per-modality networks. Confidence: 0.8
+- Prefers human-like unified brain with specialized regions where each region gives mastery in its modality but other regions also understand what the master region processed in their own way (shared understanding, not just spare-tire backup). Confidence: 0.85
+- Prefers self-growing emergent brain regions/subs where the brain builds its own regions on its own according to need slowly while learning over hand-built fixed specialists; considers hand-coded defaults trash. Confidence: 0.9
+- Prefers explanations in very simple plain terms with simple words over technical jargon. Confidence: 0.85
+- Prefers research-first hold: research and understand existing work only with no building or coding until explicitly told to start; when told not to code, discuss only. Confidence: 0.9
+- Prefers complete A-to-Z readouts covering what was done, why it was chosen, and how it works over partial updates. Confidence: 0.85
+- Prefers remaking new network, formulas, architecture, weights and everything from scratch new, updated and better over reusing existing models; considers existing old models trash and outdated. Confidence: 0.9
+- Prefers long non-stop autonomous work sessions (minimum ~1 hour, ideally 24/7) with silent execution and no interim check-ins — set a persistent goal and complete the full project end to end nonstop until done. Confidence: 0.85
+- Prefers source-grounded audits/summaries built from reading full source code over recaps from chat history or prior claims. Confidence: 0.85

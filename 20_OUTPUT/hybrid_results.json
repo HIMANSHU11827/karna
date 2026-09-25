@@ -1,0 +1,11 @@
+{
+  "accuracy": 0.09,
+  "config": {
+    "layers": [
+      784,
+      256,
+      100
+    ],
+    "classifier": "logistic_regression"
+  }
+}

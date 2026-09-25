@@ -1,0 +1,25 @@
+{
+  "phase": 2.5,
+  "direction_update": "deduce_from_scratch",
+  "status": "monitoring",
+  "updated_at": "2026-09-23T10:10:00",
+  "key_focus": [
+    "Deduce new neural network formulas from first principles",
+    "Design custom architecture (NOT transformers, Mamba, SSMs, Krotov-Hopfield, BCM)",
+    "Build from scratch with own math and own code",
+    "Track unique contribution: what makes this architecture novel",
+    "Verify no copying of existing architectures"
+  ],
+  "monitoring_metrics": [
+    "Novelty check: are we deducing or copying?",
+    "Mathematical soundness of derived formulas",
+    "Code implementation matches deduced math",
+    "Performance vs baselines (eventual)",
+    "Team coordination on architecture decisions"
+  ],
+  "alerts_if": [
+    "Existing architecture patterns detected in code",
+    "No mathematical derivation documented",
+    "Project stalls without progress"
+  ]
+}
