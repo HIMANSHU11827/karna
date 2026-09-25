@@ -7,9 +7,9 @@ from karna.core import SPLRCell, PSM
 
 
 class UniBrain:
-    def __init__(self, dim=512, n=768, k=48, out_dim=10, seed=1):
-        self.enc = UniEncoder(dim=dim, k=64, seed=seed)
-        self.grow = GrowBrain(dim=64, r0=6, rmax=24, seed=seed)
+    def __init__(self, dim=768, n=1536, k=96, out_dim=10, seed=1):
+        self.enc = UniEncoder(dim=dim, k=96, seed=seed)
+        self.grow = GrowBrain(dim=64, r0=8, rmax=32, seed=seed)
         self.cell = SPLRCell(n=n, k=k, in_dim=dim, seed=seed)
         self.psm = PSM(out_dim, n)
         self.t = 0
