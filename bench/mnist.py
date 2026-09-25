@@ -1,4 +1,4 @@
-"""AJO1 MNIST bench: real 784-d digits, 2000 train / 500 test."""
+"""Karna MNIST bench: fit() 2-pass batch-learn, 3000 train / 500 test."""
 import time
 import numpy as np
 from karna.core import AJO1
@@ -14,12 +14,11 @@ def main():
         yte = np.load("16_DATA/y_test.npy", mmap_mode="r")
     n, k, NTR, NTE = 1024, 64, 3000, 500
     ajo = AJO1(in_dim=784, n=n, k=k, out_dim=10, seed=1)
+    X = np.asarray(Xtr[:NTR], dtype=np.float64)
+    Y = np.zeros((NTR, 10))
+    Y[np.arange(NTR), np.asarray(ytr[:NTR]).astype(int)] = 1.0
     s = time.perf_counter()
-    for i in range(NTR):
-        x = np.asarray(Xtr[i], dtype=np.float64)
-        t = np.zeros(10)
-        t[int(ytr[i])] = 1.0
-        ajo.step(x, t)
+    ajo.fit(X, Y, epochs=2)
     train_ms = (time.perf_counter() - s) * 1000.0 / NTR
     ajo.save("/tmp/karna_core_mnist.psm.npz")
     import os as _os

@@ -8,9 +8,10 @@ def _now(t=None):
     return time.time() if t is None else float(t)
 
 
-def _hash_idx(token, dim):
-    d = hashlib.md5(token.encode("utf-8")).digest()
-    return int.from_bytes(d[:4], "little") % dim
+def _tok_raw(tok, dim):
+    seed = int.from_bytes(hashlib.md5(tok.encode("utf-8")).digest()[:4], "little")
+    rng = np.random.default_rng(seed)
+    return rng.random(dim)
 
 
 def _to_vec(raw, dim):
@@ -44,7 +45,11 @@ class UniEncoder:
         self.bias = np.zeros(dim)
 
     def encode(self, data, kind, t=None):
-        raw = _to_vec(np.frombuffer(_bytes_of(data, kind), dtype=np.uint8).astype(np.float64) / 255.0, self.dim)
+        if kind == "text":
+            words = str(data).lower().split() or [str(data).lower()]
+            raw = np.mean([_tok_raw(w, self.dim) for w in words], axis=0)
+        else:
+            raw = _to_vec(np.frombuffer(_bytes_of(data, kind), dtype=np.uint8).astype(np.float64) / 255.0, self.dim)
         z = self.P @ (raw - 0.5) + self.bias
         idx = np.argpartition(z, -self.k)[-self.k:]
         vec = np.zeros(self.dim, dtype=np.float32)
@@ -55,21 +60,70 @@ class UniEncoder:
     def adapt(self, vec, eta=0.001):
         self.bias += eta * (np.asarray(vec).mean() - self.bias.mean())
 
-    def decode(self, vec, gram=3, top=12, vocab=None):
+    def decode(self, vec, gram=3, top=12, vocab=None, order=2, seed_vec=None, binary=True):
         v = np.asarray(vec, dtype=np.float64).reshape(-1)
-        act = set(np.where(v[:self.dim] > 0.5)[0].tolist())
+        if binary:
+            act = set(np.where(v[:self.dim] > 0.5)[0].tolist())
+            if not act:
+                act = set(np.argpartition(v[:self.dim], -self.k)[-self.k:].tolist())
+        else:
+            act = set(np.where(v[:self.dim] > 0.5)[0].tolist())
         if vocab is None:
             vocab = ["the", "and", "moon", "soft", "night", "song", "star", "river",
-                     "flow", "silent", "deep", "hello", "world", "brain", "red", "blue"]
-        scored = []
+                     "flow", "silent", "deep", "hello", "world", "brain", "red", "blue",
+                     "light", "dark", "wind", "rain", "fire", "earth", "sky", "sea",
+                     "dream", "whisper", "loud", "quiet", "fast", "slow", "bright", "wild"]
+        tok_sets = {}
         for tok in vocab:
-            raw = _to_vec(np.frombuffer((tok * gram).encode("utf-8"), dtype=np.uint8).astype(np.float64) / 255.0, self.dim)
+            raw = _tok_raw(tok, self.dim)
             z = self.P @ (raw - 0.5) + self.bias
-            tk = set(np.argpartition(z, -self.k)[-self.k:].tolist())
-            s = len(act & tk) / max(len(tk), 1)
-            scored.append((s, tok))
+            tok_sets[tok] = set(np.argpartition(z, -self.k)[-self.k:].tolist())
+        scored = [(len(act & tk) / max(len(tk), 1), tok) for tok, tk in tok_sets.items()]
         scored.sort(reverse=True)
+        top_toks = [t for _, t in scored[:max(top, order + 1)]]
+        if seed_vec is not None:
+            sv = np.asarray(seed_vec, dtype=np.float64).reshape(-1)
+            sact = set(np.where(sv[:self.dim] > 0.5)[0].tolist())
+            top_toks.sort(key=lambda t: -len(sact & tok_sets[t]))
+        if order >= 2 and len(top_toks) >= 2:
+            best, best_s = None, -1.0
+            import itertools
+            for perm in itertools.permutations(top_toks[:8], min(order + 1, 3)):
+                combo = " ".join(perm)
+                raw = _to_vec(np.frombuffer(combo.encode("utf-8"), dtype=np.uint8).astype(np.float64) / 255.0, self.dim)
+                z = self.P @ (raw - 0.5) + self.bias
+                ck = set(np.argpartition(z, -self.k)[-self.k:].tolist())
+                s = len(act & ck) / max(len(ck), 1)
+                if s > best_s:
+                    best, best_s = combo, s
+            return best
         return " ".join(t for _, t in scored[:top])
+
+    def generate(self, seed_text, brain=None, steps=4, top=6):
+        seed = self.encode(seed_text, "text")["vector"]
+        sv = np.asarray(seed, dtype=np.float64)
+        direct = self.decode(sv, top=top, order=2)
+        if brain is not None and steps > 0:
+            seq = brain.compose(sv, steps=steps)
+            vec = seq[-1]
+            direct_set = set(direct.split())
+            scored = []
+            for tok in ["the", "and", "moon", "soft", "night", "song", "star", "river",
+                        "flow", "silent", "deep", "hello", "world", "brain", "red", "blue",
+                        "light", "dark", "wind", "rain", "fire", "earth", "sky", "sea",
+                        "dream", "whisper", "loud", "quiet", "fast", "slow", "bright", "wild"]:
+                raw = _tok_raw(tok, self.dim)
+                z = self.P @ (raw - 0.5) + self.bias
+                tk = set(np.argpartition(z, -self.k)[-self.k:].tolist())
+                ck = set(np.argpartition(vec[:self.dim], -self.k)[-self.k:].tolist())
+                s = len(ck & tk) / max(len(tk), 1)
+                scored.append((s, tok))
+            scored.sort(reverse=True)
+            out = " ".join(t for _, t in scored[:top])
+            if set(out.split()) == direct_set:
+                return direct
+            return out
+        return direct
 
 
 if __name__ == "__main__":

@@ -25,15 +25,16 @@ class UniBrain:
         if not hasattr(self, "_task_proto"):
             self._task_proto = {}
         zn = z_g / (float(np.linalg.norm(z_g)) + 1e-8)
-        best, bi, bsim = -1e18, None, -1.0
+        best, bi = -1e18, None
         for k, W in self.psm.heads.items():
             p = self._task_proto.get(k)
             if p is None:
                 s = float(np.max(W @ zn))
             else:
                 pn = p / (float(np.linalg.norm(p)) + 1e-8)
-                s = float(zn @ pn)
-                bsim = max(bsim, s) if bi is None else bsim
+                head_score = float(np.max(W @ zn)) / (float(np.linalg.norm(W)) + 1e-8)
+                proto_score = float(zn @ pn)
+                s = 0.5 * head_score + 0.5 * proto_score
             if s > best:
                 best, bi = s, k
         return bi
@@ -88,14 +89,17 @@ class UniBrain:
         return {"replayed": n}
 
     def compose(self, seed_vec, steps=8, temp=1.0, alpha=0.2):
-        x0 = np.asarray(seed_vec, dtype=np.float64)
+        x0 = np.asarray(seed_vec, dtype=np.float64).reshape(-1)
+        if x0.shape[0] != self.cell.D.shape[1]:
+            x0 = x0[:self.cell.D.shape[1]]
         x0 /= np.linalg.norm(x0) + 1e-8
         W = self.cell.D @ self.cell.D.T
         W = (W + W.T) / 2.0
         np.fill_diagonal(W, 0.0)
         z = self.cell.D @ x0
         best, best_e = z.copy(), 1e18
-        out = [x0]
+        out = [np.zeros(self.enc.dim)]
+        out[0][:x0.shape[0]] = x0
         for _ in range(steps):
             z_new = (1 - alpha) * z + alpha * np.tanh(W @ z + self.cell.D @ x0)
             z_new /= np.linalg.norm(z_new) + 1e-8
@@ -107,7 +111,9 @@ class UniBrain:
                 break
             z = z_new
             xh = np.tanh(self.cell.D.T @ z)
-            out.append(xh / (np.linalg.norm(xh) + 1e-8))
+            full = np.zeros(self.enc.dim)
+            full[:xh.shape[0]] = xh / (np.linalg.norm(xh) + 1e-8)
+            out.append(full)
         return out
 
     def save(self, path):
