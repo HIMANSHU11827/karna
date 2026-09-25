@@ -7,8 +7,8 @@ from karna.core import SPLRCell, PSM
 
 
 class UniBrain:
-    def __init__(self, dim=768, n=1536, k=96, out_dim=10, seed=1):
-        self.enc = UniEncoder(dim=dim, k=96, seed=seed)
+    def __init__(self, dim=1024, n=2496, k=156, out_dim=10, seed=1):
+        self.enc = UniEncoder(dim=dim, k=128, seed=seed)
         self.grow = GrowBrain(dim=64, r0=8, rmax=32, seed=seed)
         self.cell = SPLRCell(n=n, k=k, in_dim=dim, seed=seed)
         self.psm = PSM(out_dim, n)
@@ -72,6 +72,46 @@ class UniBrain:
         return {"y": y, "M": M, "active": int(h.sum()), "winner": g["winner"],
                 "regions": g["regions"], "conf": round(conf, 3),
                 "drive": g.get("drive", 0.0), "kind": kind}
+
+    def _tok_vec(self, tok_id):
+        vec = np.zeros(self.cell.D.shape[1])
+        vec[tok_id % self.cell.D.shape[1]] = 1.0
+        return vec
+
+    def train_text(self, sentence, vocab, eta=0.02):
+        from karna.seq_head import SeqHead
+        if not hasattr(self, "seq"):
+            self.seq = SeqHead(len(vocab), self.cell.n, seed=1)
+            self.seq_vocab = vocab
+        ids = vocab.encode(sentence)
+        if len(ids) < 2:
+            return {"updates": 0}
+        ups = 0
+        for t in range(len(ids) - 1):
+            vec = self._tok_vec(ids[t])
+            _, _, z = self.cell.step(vec * 0.3)
+            y = np.zeros(len(vocab))
+            y[ids[t + 1]] = 1.0
+            ups += self.seq.step_train(z, y, eta=eta)
+        return {"updates": ups}
+
+    def generate_tokens(self, seed_text, vocab=None, max_len=16, temp=1.0):
+        from karna.seq_head import SeqHead
+        vocab = vocab or getattr(self, "seq_vocab", None)
+        if vocab is None or not hasattr(self, "seq"):
+            return self.enc.generate(seed_text, brain=self, steps=4, top=6)
+        ids = vocab.encode(seed_text)
+        out = []
+        for _ in range(max_len):
+            tok = ids[-1] if ids else 1
+            _, _, z = self.cell.step(self._tok_vec(tok))
+            lin = self.seq.logits(z) / max(temp, 1e-6)
+            nxt = int(np.argmax(lin))
+            if nxt == 2:
+                break
+            out.append(nxt)
+            ids = [nxt]
+        return vocab.decode(out)
 
     def sleep(self, steps=50):
         n = min(len(self.psm.mem_h), steps)
